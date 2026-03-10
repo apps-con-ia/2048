@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showGameMessage(won) {
         if (won) {
             gameMessage.innerHTML = `
-                <p>¡Has liberado al conejito!</p>
+                <p>¡Has liberado al conejo!</p>
                 <div class="lower">
                     <a class="keep-playing-button">Seguir jugando</a>
                     <a class="retry-button">Intentar de nuevo</a>
