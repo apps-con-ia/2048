@@ -15,17 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let keepPlaying = false;
 
     const emojiMap = {
-        2: '🐭', // Mouse
-        4: '🐱', // Cat
-        8: '🐶', // Dog
-        16: '🦊', // Fox
-        32: '🐻', // Bear
-        64: '🐼', // Panda
-        128: '🐯', // Tiger
-        256: '🦁', // Lion
-        512: '🐮', // Cow
-        1024: '🐷', // Pig
-        2048: '🐵'  // Monkey (Win)
+        2: '🍄', // Champiñón
+        4: '🧅', // Cebolla
+        8: '🧄', // Ajo
+        16: '🥕', // Zanahoria
+        32: '🥔', // Papa
+        64: '🌽', // Maíz
+        128: '🌶️', // Chile
+        256: '🫑', // Pimiento
+        512: '🥒', // Pepino
+        1024: '🥦', // Brócoli
+        2048: '🍅'  // Tomate (Win)
     };
 
     bestDisplay.innerHTML = bestScore;
