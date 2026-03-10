@@ -1,11 +1,11 @@
 {
-  "name": "Libera al conejo",
-  "short_name": "Conejo",
+  "name": "Conejito",
+  "short_name": "Conejito",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#faf8ef",
   "theme_color": "#edc22e",
-  "description": "El clásico juego 2048 reimaginado para liberar al conejo.",
+  "description": "El clásico juego 2048 reimaginado para liberar al conejito.",
   "icons": [
     {
       "src": "icon.svg",

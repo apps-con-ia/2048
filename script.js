@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showGameMessage(won) {
         if (won) {
             gameMessage.innerHTML = `
-                <p>¡Has liberado al conejo!</p>
+                <p>¡Has liberado al conejito!</p>
                 <div class="lower">
                     <a class="keep-playing-button">Seguir jugando</a>
                     <a class="retry-button">Intentar de nuevo</a>
@@ -362,9 +362,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchStartX = 0;
     let touchStartY = 0;
 
-    // Prevenir el scroll por si alguien hace scroll desde el tablero
-    const gameContainer = document.querySelector('.game-container');
-    gameContainer.addEventListener('touchmove', (e) => {
+    // Prevenir el scroll a nivel de todo el documento
+    document.addEventListener('touchmove', (e) => {
         e.preventDefault(); 
     }, { passive: false });
 
