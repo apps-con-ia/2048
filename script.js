@@ -368,5 +368,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('.restart-button').addEventListener('click', init);
 
+    // PWA Install Logic
+    let deferredPrompt;
+    const installButton = document.getElementById('install-button');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Previene la aparición automática del mini-infobar en móviles
+        e.preventDefault();
+        // Guarda el evento para poder dispararlo luego
+        deferredPrompt = e;
+        // Muestra el botón de instalar en la interfaz
+        if (installButton) installButton.style.display = 'inline-block';
+    });
+
+    if (installButton) {
+        installButton.addEventListener('click', async () => {
+            // Oculta el botón
+            installButton.style.display = 'none';
+            // Muestra el prompt de instalación nativo
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                // Espera la respuesta del usuario
+                const { outcome } = await deferredPrompt.userChoice;
+                // Resetea la variable, ya que prompt() solo se puede usar una vez
+                deferredPrompt = null;
+            }
+        });
+    }
+
+    window.addEventListener('appinstalled', () => {
+        // Limpiamos la variable cuando la app se instaló exitosamente
+        deferredPrompt = null;
+        if (installButton) installButton.style.display = 'none';
+    });
+
     init();
 });

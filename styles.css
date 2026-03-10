@@ -100,7 +100,7 @@ body {
   margin: 0;
 }
 
-.restart-button, .retry-button, .keep-playing-button {
+.restart-button, .retry-button, .keep-playing-button, .install-button {
   background: #8f7a66;
   color: white;
   padding: 10px 20px;
@@ -112,7 +112,7 @@ body {
   margin: 0 5px;
 }
 
-.restart-button:hover, .retry-button:hover, .keep-playing-button:hover {
+.restart-button:hover, .retry-button:hover, .keep-playing-button:hover, .install-button:hover {
   background: #9f8b77;
 }
 
