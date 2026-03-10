@@ -311,13 +311,20 @@ document.addEventListener('DOMContentLoaded', () => {
     function showGameMessage(won) {
         if (won) {
             gameMessage.innerHTML = `
-                <p>¡Has liberado al conejito!</p>
+                <div class="celebration-content">
+                    <h2>¡Felicitaciones! ¡Has liberado al conejito! 🎉</h2>
+                    <p>Ganaste la beca para aprender a crear juegos como este:</p>
+                    <p>Acceder a la capacitación en forma gratuita:</p>
+                    <a href="https://jorgecabrera.ar/campus/ia-training" target="_blank" class="promo-link">Enlace: https://jorgecabrera.ar/campus/ia-training</a>
+                    <p class="promo-code">Ingresa este código: <strong>030925</strong></p>
+                </div>
                 <div class="lower">
                     <a class="keep-playing-button">Seguir jugando</a>
                     <a class="retry-button">Intentar de nuevo</a>
                 </div>
             `;
             gameMessage.classList.add('game-won');
+            startConfetti();
         } else {
             gameMessage.innerHTML = `
                 <p>¡Juego terminado!</p>

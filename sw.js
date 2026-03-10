@@ -1,4 +1,4 @@
-const CACHE_NAME = '2048-veggie-v5';
+const CACHE_NAME = '2048-veggie-v6';
 const urlsToCache = [
   './',
   './index.html',
