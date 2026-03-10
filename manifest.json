@@ -1,0 +1,16 @@
+{
+  "name": "2048 Ensalada",
+  "short_name": "2048 Veggie",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#faf8ef",
+  "theme_color": "#edc22e",
+  "description": "El clásico juego 2048 pero con verduras.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
