@@ -69,7 +69,7 @@ body {
 }
 
 .score-container::after, .best-container::after {
-  content: "SCORE";
+  content: "PUNTOS";
   position: absolute;
   top: 5px;
   left: 0;
@@ -80,7 +80,7 @@ body {
 }
 
 .best-container::after {
-  content: "BEST";
+  content: "MEJOR";
 }
 
 .score-container, .best-container {

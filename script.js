@@ -269,18 +269,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function showGameMessage(won) {
         if (won) {
             gameMessage.innerHTML = `
-                <p>You win!</p>
+                <p>¡Has ganado!</p>
                 <div class="lower">
-                    <a class="keep-playing-button">Keep going</a>
-                    <a class="retry-button">Try again</a>
+                    <a class="keep-playing-button">Seguir jugando</a>
+                    <a class="retry-button">Intentar de nuevo</a>
                 </div>
             `;
             gameMessage.classList.add('game-won');
         } else {
             gameMessage.innerHTML = `
-                <p>Game over!</p>
+                <p>¡Juego terminado!</p>
                 <div class="lower">
-                    <a class="retry-button">Try again</a>
+                    <a class="retry-button">Intentar de nuevo</a>
                 </div>
             `;
             gameMessage.classList.add('game-over');
