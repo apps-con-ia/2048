@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2048</title>
+    <title>Libera al conejito</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
@@ -13,19 +13,35 @@
 <body>
     <div class="container">
         <div class="heading">
-            <h1 class="title">2048</h1>
+            <h1 class="title">Conejito</h1>
             <div class="scores-container">
                 <div class="score-container">0</div>
                 <div class="best-container">0</div>
             </div>
         </div>
         <div class="above-game">
-            <p class="game-intro">¡Une los números y llega a la <strong>ficha 2048!</strong></p>
+            <p class="game-intro">¡Une a los animales y <strong>libera al conejito (2048)!</strong></p>
             <div>
                 <a class="install-button" id="install-button" style="display: none; background: #edc22e;">Instalar App</a>
                 <a class="restart-button">Nuevo Juego</a>
             </div>
         </div>
+        
+        <!-- Animal Progression Bar -->
+        <div class="animal-progression-container">
+            <span class="animal-item" data-val="2">🐭</span>
+            <span class="animal-item" data-val="4">🐱</span>
+            <span class="animal-item" data-val="8">🐶</span>
+            <span class="animal-item" data-val="16">🦊</span>
+            <span class="animal-item" data-val="32">🐻</span>
+            <span class="animal-item" data-val="64">🐼</span>
+            <span class="animal-item" data-val="128">🐯</span>
+            <span class="animal-item" data-val="256">🦁</span>
+            <span class="animal-item" data-val="512">🐮</span>
+            <span class="animal-item" data-val="1024">🐷</span>
+            <span class="animal-item" data-val="2048">🐰</span>
+        </div>
+
         <div class="game-container">
             <div class="game-message">
                 <!-- Content injected via JS -->

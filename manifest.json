@@ -1,11 +1,11 @@
 {
-  "name": "2048 Ensalada",
-  "short_name": "2048 Veggie",
+  "name": "Libera al conejito",
+  "short_name": "Conejito",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#faf8ef",
   "theme_color": "#edc22e",
-  "description": "El clásico juego 2048 pero con verduras.",
+  "description": "El clásico juego 2048 reimaginado para liberar al conejito.",
   "icons": [
     {
       "src": "icon.svg",

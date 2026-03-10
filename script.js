@@ -13,19 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameWon = false;
     let gameIsOver = false;
     let keepPlaying = false;
+    let highestUnlocked = localStorage.getItem('2048HighestUnlocked') || 2;
 
     const emojiMap = {
-        2: '🍄', // Champiñón
-        4: '🧅', // Cebolla
-        8: '🧄', // Ajo
-        16: '🥕', // Zanahoria
-        32: '🥔', // Papa
-        64: '🌽', // Maíz
-        128: '🌶️', // Chile
-        256: '🫑', // Pimiento
-        512: '🥒', // Pepino
-        1024: '🥦', // Brócoli
-        2048: '🍅'  // Tomate (Win)
+        2: '🐭', // Mouse
+        4: '🐱', // Cat
+        8: '🐶', // Dog
+        16: '🦊', // Fox
+        32: '🐻', // Bear
+        64: '🐼', // Panda
+        128: '🐯', // Tiger
+        256: '🦁', // Lion
+        512: '🐮', // Cow
+        1024: '🐷', // Pig
+        2048: '🐰'  // Rabbit (Win)
     };
 
     bestDisplay.innerHTML = bestScore;
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tileContainer.innerHTML = '';
         score = 0;
         updateScore();
+        updateProgressionBar();
         gameWon = false;
         gameIsOver = false;
         keepPlaying = false;
@@ -206,6 +208,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                         score += mergedTile.val;
                         moved = true;
+
+                        if (mergedTile.val > highestUnlocked) {
+                            highestUnlocked = mergedTile.val;
+                            localStorage.setItem('2048HighestUnlocked', highestUnlocked);
+                            updateProgressionBar();
+                        }
                         
                         if (mergedTile.val === 2048) {
                             gameWon = true;
@@ -239,6 +247,26 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('2048BestScore', bestScore);
             bestDisplay.innerHTML = bestScore;
         }
+    }
+
+    function updateProgressionBar() {
+        const animalItems = document.querySelectorAll('.animal-item');
+        let nextUpFound = false;
+
+        animalItems.forEach(item => {
+            const val = parseInt(item.getAttribute('data-val'));
+            
+            // Cleanup old classes
+            item.classList.remove('unlocked', 'next-up');
+
+            if (val <= highestUnlocked) {
+                item.classList.add('unlocked');
+            } else if (!nextUpFound) {
+                // The first one we encounter that is bigger than highestUnlocked is the 'next-up'
+                item.classList.add('next-up');
+                nextUpFound = true;
+            }
+        });
     }
 
     function checkGameOver() {
@@ -283,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showGameMessage(won) {
         if (won) {
             gameMessage.innerHTML = `
-                <p>¡Has ganado!</p>
+                <p>¡Has liberado al conejito!</p>
                 <div class="lower">
                     <a class="keep-playing-button">Seguir jugando</a>
                     <a class="retry-button">Intentar de nuevo</a>

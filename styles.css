@@ -116,6 +116,54 @@ body {
   background: #9f8b77;
 }
 
+/* Animal Progression Bar */
+.animal-progression-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--board-bg);
+  padding: 10px var(--gap);
+  border-radius: 6px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  gap: 5px;
+}
+
+.animal-item {
+  font-size: 24px;
+  opacity: 0.3; /* Grisáceos por defecto (bloqueados) */
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Desbloqueados */
+.animal-item.unlocked {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* El próximo animal: resaltado o iluminado */
+.animal-item.next-up {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.3);
+  text-shadow: 0 0 10px rgba(237, 194, 46, 0.8);
+  animation: pulse-next 1.5s infinite;
+}
+
+@keyframes pulse-next {
+  0% { transform: scale(1.2); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1.2); }
+}
+
+@media (max-width: 520px) {
+  .animal-item {
+    font-size: 18px;
+  }
+}
+
 .game-container {
   position: relative;
   background: var(--board-bg);
