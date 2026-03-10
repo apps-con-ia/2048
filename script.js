@@ -14,6 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameIsOver = false;
     let keepPlaying = false;
 
+    const emojiMap = {
+        2: '🐭', // Mouse
+        4: '🐱', // Cat
+        8: '🐶', // Dog
+        16: '🦊', // Fox
+        32: '🐻', // Bear
+        64: '🐼', // Panda
+        128: '🐯', // Tiger
+        256: '🦁', // Lion
+        512: '🐮', // Cow
+        1024: '🐷', // Pig
+        2048: '🐵'  // Monkey (Win)
+    };
+
     bestDisplay.innerHTML = bestScore;
 
     function init() {
@@ -74,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const inner = document.createElement('div');
                 inner.classList.add('tile-inner');
-                inner.innerHTML = tile.val;
+                inner.innerHTML = emojiMap[tile.val] || tile.val;
                 el.appendChild(inner);
                 tileContainer.appendChild(el);
             }
