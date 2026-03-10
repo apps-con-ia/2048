@@ -362,10 +362,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchStartX = 0;
     let touchStartY = 0;
 
+    // Prevenir el scroll por si alguien hace scroll desde el tablero
+    const gameContainer = document.querySelector('.game-container');
+    gameContainer.addEventListener('touchmove', (e) => {
+        e.preventDefault(); 
+    }, { passive: false });
+
     document.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
-    });
+    }, { passive: false });
 
     document.addEventListener('touchend', (e) => {
         if (!touchStartX || !touchStartY || gameIsOver) return;

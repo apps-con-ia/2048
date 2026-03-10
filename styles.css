@@ -116,6 +116,21 @@ body {
   background: #9f8b77;
 }
 
+@media (max-width: 520px) {
+  .install-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    font-size: 18px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+}
+
 /* Animal Progression Bar */
 .animal-progression-container {
   display: flex;
@@ -172,6 +187,8 @@ body {
   width: 500px;
   height: 500px;
   box-sizing: border-box;
+  /* Evitar que la pantalla se mueva al deslizar el dedo sobre la grilla (Scroll & Refresh nativo) */
+  touch-action: none;
 }
 
 @media (max-width: 520px) {
