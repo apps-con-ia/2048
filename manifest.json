@@ -5,12 +5,12 @@
   "display": "standalone",
   "background_color": "#faf8ef",
   "theme_color": "#edc22e",
-  "description": "El clásico juego 2048 reimaginado para liberar al conejito.",
+  "description": "Une los animales, libera al conejito y accede a una beca.",
   "icons": [
     {
-      "src": "icon.svg",
-      "sizes": "192x192 512x512 any",
-      "type": "image/svg+xml",
+      "src": "icono.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]

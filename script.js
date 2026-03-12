@@ -412,26 +412,34 @@ document.addEventListener('DOMContentLoaded', () => {
     let deferredPrompt;
     const installButton = document.getElementById('install-button');
 
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+
+    if (isIOS && !isStandalone) {
+        // En iOS mostramos el botón pero con una instrucción
+        if (installButton) installButton.style.display = 'inline-block';
+    }
+
     window.addEventListener('beforeinstallprompt', (e) => {
-        // Previene la aparición automática del mini-infobar en móviles
         e.preventDefault();
-        // Guarda el evento para poder dispararlo luego
         deferredPrompt = e;
-        // Muestra el botón de instalar en la interfaz
         if (installButton) installButton.style.display = 'inline-block';
     });
 
     if (installButton) {
         installButton.addEventListener('click', async () => {
-            // Oculta el botón
-            installButton.style.display = 'none';
-            // Muestra el prompt de instalación nativo
+            if (isIOS && !isStandalone) {
+                alert('Para instalar: Toca el icono de "Compartir" (flecha hacia arriba) y selecciona "Agregar a inicio".');
+                return;
+            }
+
             if (deferredPrompt) {
                 deferredPrompt.prompt();
-                // Espera la respuesta del usuario
                 const { outcome } = await deferredPrompt.userChoice;
-                // Resetea la variable, ya que prompt() solo se puede usar una vez
                 deferredPrompt = null;
+                installButton.style.display = 'none';
+            } else {
+                alert('Esta aplicación ya está instalada o tu navegador no soporta la instalación directa.');
             }
         });
     }

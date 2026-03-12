@@ -1,10 +1,10 @@
-const CACHE_NAME = '2048-veggie-v6';
+const CACHE_NAME = '2048-veggie-v10';
 const urlsToCache = [
   './',
   './index.html',
   './styles.css',
   './script.js',
-  './icon.svg',
+  './icono.png',
   './manifest.json',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'
 ];
